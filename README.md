@@ -34,6 +34,8 @@ yarn dev
 
 ## API Endpoints
 
+http://localhost:4000/api/structured
+
 http://localhost:4000/api/items
 
 http://localhost:4000/api/items/migrate
