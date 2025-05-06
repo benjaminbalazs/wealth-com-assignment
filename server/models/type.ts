@@ -2,8 +2,6 @@ import { Schema, model } from "mongoose";
 import type { Model } from "mongoose";
 import { objectPlugin } from "./plugins/object";
 import type { IID } from "./plugins/object";
-import { serializePlugin } from "./plugins/serializer";
-import type { Serializer } from "./plugins/serializer";
 
 export interface IType extends IID {
 	assetDescription: string | null;
@@ -154,8 +152,7 @@ const schema = new Schema<IType>({
 });
 
 schema.plugin(objectPlugin);
-schema.plugin(serializePlugin);
 
-export interface TypeModel extends Model<IType, {}, Serializer> {}
+export interface TypeModel extends Model<IType, {}> {}
 
 export const Type = model<IType, TypeModel>("Type", schema);

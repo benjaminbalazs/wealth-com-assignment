@@ -1,0 +1,42 @@
+html {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	background: white;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	overflow-x: hidden;
+}
+html.overflow-y-hidden {
+	overflow-y: hidden !important;
+}
+
+// iOS Safari hack to allow click events on body
+@supports (-webkit-touch-callout: none) {
+	body {
+		cursor: pointer;
+	}
+}
+
+body {
+	#__nuxt {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+#vue-inspector-container,
+#nuxt-devtools-container,
+vite-plugin-checker-error-overlay {
+	position: fixed;
+}

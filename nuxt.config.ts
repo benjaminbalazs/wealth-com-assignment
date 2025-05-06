@@ -42,7 +42,7 @@ export default defineNuxtConfig({
 		scanDirs: ["server/api", "server/utils", "server/models"],
 	},
 
-	/* css: ["normalize.css/normalize.css", "@/assets/styles/ress.css", "@/assets/fonts/fonts.css", "@/assets/styles/globals.scss"],
+	css: ["normalize.css/normalize.css", "@/assets/styles/globals.scss"],
 	postcss: {
 		plugins: {
 			autoprefixer: {},
@@ -53,25 +53,6 @@ export default defineNuxtConfig({
 			modules: {
 				scopeBehaviour: "global",
 			},
-			preprocessorOptions: {
-				scss: {
-					additionalData: (content: string, loaderContext: string) => {
-						const globals = ["_colors.scss", "_mixins.scss", "styles.scss", "admin.scss", "typography.scss"];
-
-						if (globals.some((global) => loaderContext.endsWith(global))) {
-							return content;
-						}
-
-						const imports = globals.map((global) => `@import "@/assets/styles/${global}";`).join("\n");
-
-						return `
-                            @use "sass:math";
-                            ${imports}
-                            ${content}
-                        `;
-					},
-				},
-			},
 		},
-	}, */
+	},
 });
