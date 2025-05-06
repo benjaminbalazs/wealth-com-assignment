@@ -3,6 +3,8 @@ import type { IItem } from "../models/item";
 import { Type } from "../models/type";
 import type { IType } from "../models/type";
 
+import type { StructuredLine, StructuredCategory } from "../../utils/structured";
+
 export default defineEventHandler(async (event) => {
 	const items = await Item.find({});
 	const types = await Type.find({});
@@ -27,7 +29,7 @@ export default defineEventHandler(async (event) => {
 			categories.push(category);
 		}
 
-		const lines: Line[] = [];
+		const lines: StructuredLine[] = [];
 
 		type.holdings.majorAssetClasses.forEach((holding) => {
 			holding.assetClasses.forEach((assetClass) => {
@@ -74,26 +76,3 @@ export default defineEventHandler(async (event) => {
 
 	return categories;
 });
-
-export interface StructuredCategory {
-	name: string;
-	total: number;
-	types: StructuredType[];
-	items: StructuredItem[];
-}
-
-export interface StructuredType {
-	name: string;
-	total: number;
-	lines: Line[];
-}
-
-export interface Line {
-	name: string;
-	total: number;
-}
-
-export interface StructuredItem {
-	name: string;
-	total: number;
-}

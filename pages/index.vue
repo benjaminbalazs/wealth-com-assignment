@@ -6,8 +6,11 @@
 
 <template>
 	<main class="hero flex-vertical">
-		<h1>Index</h1>
-		<p>{{ data }}</p>
+		<div class="holder">
+			<Category :category="item" v-for="item in data" :id="item.name" :key="item.name"></Category>
+		</div>
+		<!-- <h1>Index</h1>
+		<p>{{ data }}</p> -->
 	</main>
 </template>
 
@@ -18,5 +21,11 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		.holder {
+			width: 540px;
+			flex-direction: column;
+			border: 1px solid #dee0e3;
+			border-bottom: none;
+		}
 	}
 </style>
