@@ -32,6 +32,10 @@ pnpm run dev
 yarn dev
 ```
 
+## Open the APP
+
+http://localhost:4000/
+
 ## API Endpoints
 
 http://localhost:4000/api/structured
