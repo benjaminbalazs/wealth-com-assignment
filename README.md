@@ -19,7 +19,7 @@ yarn install
 
 ## Development Server
 
-Start the development server on `http://localhost:3000`:
+Start the development server on `http://localhost:4000`:
 
 ```bash
 # npm
@@ -32,32 +32,12 @@ pnpm run dev
 yarn dev
 ```
 
-## Production
+## API Endpoints
 
-Build the application for production:
+http://localhost:4000/api/items
 
-```bash
-# npm
-npm run build
+http://localhost:4000/api/items/migrate
 
-# pnpm
-pnpm run build
+http://localhost:4000/api/types
 
-# yarn
-yarn build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+http://localhost:4000/api/types/migrate

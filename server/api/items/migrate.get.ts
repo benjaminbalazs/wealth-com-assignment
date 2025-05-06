@@ -1,7 +1,6 @@
 import { Item } from "../../models/item";
-import handler from "../../utils/handler";
 
-export default handler(async (event) => {
+export default defineEventHandler(async (event) => {
 	await list.map(async (item) => {
 		const type = new Item(item);
 		await type.save();
