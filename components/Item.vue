@@ -4,7 +4,11 @@
 	}>();
 
 	const total = computed(() => {
-		return "$" + props.item.total.toFixed(2);
+		return Intl.NumberFormat("en-US", {
+			style: "currency",
+			currency: "USD",
+			maximumSignificantDigits: 3,
+		}).format(Math.round(props.item.total));
 	});
 </script>
 
@@ -25,14 +29,14 @@
 		width: 100%;
 		display: flex;
 		flex-direction: column;
-		background: white;
+		//background: white;
 
 		.header {
 			box-sizing: border-box;
 			padding-left: 30px;
-			padding-right: 15px;
+			padding-right: 20px;
 			width: 100%;
-			height: 40px;
+			height: 55px;
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
@@ -44,7 +48,9 @@
 			}
 
 			h3 {
-				font-size: 18px;
+				font-size: 20px;
+				font-family: "Reckless", "Helvetica Neue";
+				user-select: none;
 			}
 		}
 	}

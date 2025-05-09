@@ -1,15 +1,22 @@
 <script lang="ts" setup>
+	import { useElementSize } from "@vueuse/core";
+	import { useTemplateRef } from "vue";
+
 	const props = defineProps<{
 		category: StructuredCategory;
 	}>();
 
-	const open = ref(true);
+	const open = ref(false);
 	const toggle = () => {
 		open.value = !open.value;
 	};
 
 	const total = computed(() => {
-		return "$" + props.category.total.toFixed(2);
+		return Intl.NumberFormat("en-US", {
+			style: "currency",
+			currency: "USD",
+			maximumSignificantDigits: 3,
+		}).format(Math.round(props.category.total));
 	});
 
 	const sortedTypes = computed(() => {
@@ -30,8 +37,8 @@
 			<h3>{{ total }}</h3>
 		</div>
 		<div class="content" v-if="open">
-			<Type v-for="type in sortedTypes" :key="type.name" :type="type"></Type>
-			<Item v-for="item in category.items" :key="item.name" :item="item"></Item>
+			<Type class="animation" v-for="type in sortedTypes" :key="type.name" :type="type"></Type>
+			<Item class="animation" v-for="item in category.items" :key="item.name" :item="item"></Item>
 		</div>
 	</div>
 </template>
@@ -42,17 +49,18 @@
 		display: flex;
 		flex-direction: column;
 		border-bottom: 1px solid #e5e7eb;
+		overflow: hidden;
 
 		.header {
 			box-sizing: border-box;
-			padding-left: 15px;
-			padding-right: 15px;
+			padding-left: 20px;
+			padding-right: 20px;
 			width: 100%;
-			height: 40px;
+			height: 60px;
 			display: flex;
 			align-items: center;
-			background-color: #f3f4f6;
 			justify-content: space-between;
+			cursor: pointer;
 
 			.left {
 				display: flex;
@@ -61,13 +69,22 @@
 			}
 
 			h3 {
-				font-size: 18px;
+				font-size: 22px;
+				font-family: "Reckless", "Helvetica Neue";
+				user-select: none;
 			}
 		}
 
 		.content {
-			.type + .type {
+			box-sizing: border-box;
+			box-shadow: 0px 1px 0px #e5e7eb inset;
+
+			.type + .type,
+			.item + .type {
 				border-top: 1px solid #e5e7eb;
+			}
+
+			.animation {
 			}
 		}
 	}

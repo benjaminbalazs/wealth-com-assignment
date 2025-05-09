@@ -4,7 +4,11 @@
 	}>();
 
 	const total = computed(() => {
-		return "$" + props.line.total.toFixed(2);
+		return Intl.NumberFormat("en-US", {
+			style: "currency",
+			currency: "USD",
+			maximumSignificantDigits: 3,
+		}).format(Math.round(props.line.total));
 	});
 </script>
 
@@ -23,13 +27,15 @@
 		background: white;
 		box-sizing: border-box;
 		padding-left: 50px;
-		padding-right: 15px;
-		height: 40px;
+		padding-right: 20px;
+		height: 50px;
 		align-items: center;
 		justify-content: space-between;
 
 		h3 {
 			font-size: 18px;
+			font-family: "Reckless", "Helvetica Neue";
+			user-select: none;
 		}
 	}
 </style>

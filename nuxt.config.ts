@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-	modules: ["@pinia/nuxt", "@vueuse/nuxt"], // "@nuxt/devtools",
+	modules: ["@vueuse/nuxt"],
 
 	devServer: {
 		port: 4000,
@@ -42,7 +42,7 @@ export default defineNuxtConfig({
 		scanDirs: ["server/api", "server/utils", "server/models"],
 	},
 
-	css: ["normalize.css/normalize.css", "@/assets/styles/globals.scss"],
+	css: ["normalize.css/normalize.css", "@/assets/styles/ress.css", "@/assets/fonts/fonts.css", "@/assets/styles/globals.scss"],
 	postcss: {
 		plugins: {
 			autoprefixer: {},

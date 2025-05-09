@@ -1,0 +1,15 @@
+@font-face {
+	font-family: "Reckless";
+	src: url("./reckless-regular.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Neue Haas Unica Pro";
+	src: url("./neue-haas-unica-pro.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
